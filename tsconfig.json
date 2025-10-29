@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "types": ["vite/client", "react", "react-dom"],
+    "baseUrl": "."
+  },
+  "include": [
+    "main.tsx",
+    "App.tsx",
+    "components/AutoAdvanceOverlay.tsx",
+    "components/NavigationControls.tsx",
+    "components/InteractiveIcon.tsx",
+    "components/PosterHeader.tsx",
+    "components/GradingReference.tsx",
+    "components/GroupCredits.tsx",
+    "components/ResearchReferences.tsx",
+    "components/ReflectionSection.tsx",
+    "components/figma/**/*.tsx",
+    "components/frames/**/*.tsx",
+    "components/ui/utils.ts",
+    "components/ui/button.tsx",
+    "components/ui/tooltip.tsx",
+    "components/ui/progress.tsx",
+    "components/ui/sonner.tsx"
+  ]
+}
