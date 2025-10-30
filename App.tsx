@@ -17,7 +17,14 @@ export default function App() {
   const [currentFrame, setCurrentFrame] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [progress, setProgress] = useState(0);
-  const [posterMode, setPosterMode] = useState(false);
+  const [posterMode, setPosterMode] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const slidesParam = params.get('slides');
+      return !(slidesParam === '1' || slidesParam === 'true');
+    }
+    return true;
+  });
   const autoAdvanceDelay = 6000; // 6 seconds per scene for better viewing
 
   const frames = [
@@ -94,6 +101,17 @@ export default function App() {
     toast.info(isAutoPlaying ? "⏸ Paused" : "▶ Playing");
   };
 
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const url = new URL(window.location.href);
+    if (posterMode) {
+      url.searchParams.delete('slides');
+    } else {
+      url.searchParams.set('slides', '1');
+    }
+    window.history.replaceState({}, '', url.toString());
+  }, [posterMode]);
+
   if (posterMode) {
     return (
       <div className="relative min-h-screen bg-gray-50">
@@ -154,7 +172,7 @@ export default function App() {
       />
 
       {/* Contextual Messages - z-30 - Above nav controls */}
-      {currentFrame === 0 && isAutoPlaying && (
+      {currentFrame > 0 && isAutoPlaying && (
         <div className="fixed bottom-16 sm:bottom-24 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white rounded-lg px-4 sm:px-5 py-1.5 sm:py-2 shadow-lg z-30 max-w-[90%] sm:max-w-md text-center animate-pulse">
           <p className="text-[10px] sm:text-xs">Auto-playing... Use controls to navigate</p>
         </div>
