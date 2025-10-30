@@ -10,11 +10,14 @@ import { NavigationControls } from './components/NavigationControls';
 import { AutoAdvanceOverlay } from './components/AutoAdvanceOverlay';
 import { Toaster } from './components/ui/sonner';
 import { toast } from 'sonner';
+import { PosterView } from './components/PosterView';
+import { Button } from './components/ui/button';
 
 export default function App() {
   const [currentFrame, setCurrentFrame] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [progress, setProgress] = useState(0);
+  const [posterMode, setPosterMode] = useState(false);
   const autoAdvanceDelay = 6000; // 6 seconds per scene for better viewing
 
   const frames = [
@@ -91,6 +94,20 @@ export default function App() {
     toast.info(isAutoPlaying ? "⏸ Paused" : "▶ Playing");
   };
 
+  if (posterMode) {
+    return (
+      <div className="relative min-h-screen bg-gray-50">
+        <div className="fixed top-2 sm:top-4 right-2 sm:right-4 z-50">
+          <Button size="sm" variant="outline" onClick={() => setPosterMode(false)} title="Switch to Slides">
+            Slides
+          </Button>
+        </div>
+        <PosterView />
+        <Toaster position="top-center" />
+      </div>
+    );
+  }
+
   return (
     <div className="relative w-full h-screen overflow-hidden bg-gray-900">
       {/* Frame Content - z-0 */}
@@ -118,6 +135,12 @@ export default function App() {
         <p className="text-[10px] sm:text-xs">
           <span className="text-blue-600">{currentFrame + 1}</span>/{totalFrames}
         </p>
+      </div>
+
+      <div className="fixed top-2 sm:top-4 right-20 sm:right-28 z-40">
+        <Button size="sm" variant="outline" onClick={() => setPosterMode(true)} title="Switch to Poster View">
+          Poster
+        </Button>
       </div>
 
       {/* Bottom Navigation - z-40 - Centered with proper clearance */}

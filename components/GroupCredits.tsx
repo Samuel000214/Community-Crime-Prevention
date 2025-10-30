@@ -13,7 +13,7 @@ export function GroupCredits() {
     { name: "Carcido", role: "Design & Layout", icon: Palette },
     { name: "Idulsa Jacob", role: "Illustration & Graphics", icon: Palette },
     { name: "Dumangas", role: "Caption & Reflection Writing", icon: FileText },
-    { name: "Roselim", role: "Content Development", icon: FileText },
+    { name: "Rosilem", role: "Content Development", icon: FileText },
     { name: "Magallanes Francis", role: "Presentation & Integration", icon: Presentation }
   ];
 

@@ -18,6 +18,7 @@
     "components/NavigationControls.tsx",
     "components/InteractiveIcon.tsx",
     "components/PosterHeader.tsx",
+    "components/PosterView.tsx",
     "components/GradingReference.tsx",
     "components/GroupCredits.tsx",
     "components/ResearchReferences.tsx",

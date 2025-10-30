@@ -15,7 +15,7 @@ export function Frame1Welcome({ onNext, autoPlay = false }: Frame1WelcomeProps) 
     "Carcido", 
     "Idulsa Jacob",
     "Dumangas",
-    "Roselim",
+    "Rosilem",
     "Magallanes Francis"
   ];
 
