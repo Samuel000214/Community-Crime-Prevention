@@ -1,6 +1,5 @@
 import { motion } from 'motion/react';
 import { Sun, Bird, Users, Heart, Shield, GraduationCap, HeartHandshake } from 'lucide-react';
-import { GroupCredits } from '../GroupCredits';
 import { ResearchReferences } from '../ResearchReferences';
 
 export function Frame5Reflection() {
@@ -202,9 +201,6 @@ export function Frame5Reflection() {
               <h3 className="text-2xl">Project Credits & References</h3>
             </div>
           </motion.div>
-
-          {/* Group Credits Component */}
-          <GroupCredits />
 
           {/* Research References Component */}
           <ResearchReferences />
