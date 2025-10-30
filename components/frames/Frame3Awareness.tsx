@@ -95,10 +95,10 @@ export function Frame3Awareness({ autoPlay = false }: Frame3AwarenessProps) {
                   <motion.div
                     animate={autoPlay && muralRevealed ? { scale: [1, 1.05, 1] } : {}}
                     transition={{ duration: 0.8, repeat: 2 }}
-                    className="bg-white/98 rounded-2xl p-8 shadow-2xl max-w-md text-center border-4 border-yellow-400"
+                    className="bg-white/98 rounded-2xl p-4 sm:p-6 lg:p-8 shadow-2xl max-w-md text-center border-4 border-yellow-400"
                   >
-                    <h4 className="text-3xl text-yellow-600 mb-3">#KabataanKontraDrogaAtTerorismo</h4>
-                    <p className="text-gray-700 leading-relaxed">
+                    <h4 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-yellow-600 mb-3 break-words hyphens-auto px-2 leading-tight">#KabataanKontraDrogaAtTerorismo</h4>
+                    <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                       Filipino students in school uniforms painting powerful anti-drug messages on barangay walls
                     </p>
                   </motion.div>

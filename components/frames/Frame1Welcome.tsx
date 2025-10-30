@@ -187,36 +187,45 @@ export function Frame1Welcome({ onNext, autoPlay = false }: Frame1WelcomeProps) 
         </motion.div>
       </div>
 
-      {/* Group Members - Bottom (above navigation controls with proper clearance) */}
+      {/* Group Members - Fixed at bottom with proportional spacing */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-12 sm:bottom-16 md:bottom-20 left-3 right-3 sm:left-6 sm:right-6 bg-white rounded-xl sm:rounded-2xl p-3 sm:p-6 shadow-2xl border border-gray-200 max-w-4xl mx-auto z-20"
+        className="fixed bottom-16 sm:bottom-20 left-1/2 -translate-x-1/2 w-[calc(100%-1.5rem)] sm:w-[calc(100%-2.5rem)] max-w-3xl mx-auto bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-2.5 sm:p-3.5 shadow-lg border border-gray-100/80 z-20"
+        style={{
+          zIndex: 30,
+          paddingBottom: 'calc(0.75rem + env(safe-area-inset-bottom, 0px))',
+          marginBottom: 'max(0.75rem, env(safe-area-inset-bottom, 0px))',
+          boxShadow: '0 4px 20px -2px rgba(0,0,0,0.08)',
+          backdropFilter: 'blur(8px)'
+        }}
       >
-        <div className="flex items-center gap-2 mb-3 sm:mb-4">
-          <Users className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
-          <p className="text-xs sm:text-sm text-gray-800">CLJ1 Project Team</p>
+        <div className="flex items-center gap-2 mb-2 sm:mb-3">
+          <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600" />
+          <p className="text-[11px] sm:text-xs font-medium text-gray-700 tracking-wide">CLJ1 PROJECT TEAM</p>
         </div>
         
         {/* Leader */}
-        <div className="mb-3 sm:mb-4 bg-gradient-to-r from-yellow-50 to-amber-50 border-l-4 border-yellow-500 rounded-lg p-2 sm:p-3">
+        <div className="mb-2.5 sm:mb-3 bg-gradient-to-r from-yellow-50 to-amber-50 border-l-3 border-yellow-400 rounded-lg p-1.5 sm:p-2.5">
           <div className="flex items-center gap-2">
-            <Crown className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-600" />
-            <p className="text-xs sm:text-sm">
+            <Crown className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-yellow-500" />
+            <p className="text-[11px] sm:text-xs">
               <strong className="text-gray-900">Team Leader:</strong> 
-              <span className="text-gray-800 ml-1 sm:ml-2">{leader}</span>
+              <span className="text-gray-700 ml-1">{leader}</span>
             </p>
           </div>
         </div>
 
         {/* Members */}
         <div>
-          <p className="text-[10px] sm:text-xs text-gray-600 mb-2">Team Members:</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-1.5 sm:gap-2">
             {teamMembers.map((member, idx) => (
-              <div key={idx} className="bg-blue-50 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 text-center border border-blue-200">
-                <p className="text-[10px] sm:text-xs text-gray-900">{member}</p>
+              <div 
+                key={idx} 
+                className="bg-blue-50/80 hover:bg-blue-50 transition-colors rounded-lg px-1.5 sm:px-2.5 py-1 text-center border border-blue-100/80"
+              >
+                <p className="text-[10px] sm:text-[11px] text-gray-800 font-medium">{member}</p>
               </div>
             ))}
           </div>
