@@ -17,14 +17,7 @@ export default function App() {
   const [currentFrame, setCurrentFrame] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [progress, setProgress] = useState(0);
-  const [posterMode, setPosterMode] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const params = new URLSearchParams(window.location.search);
-      const slidesParam = params.get('slides');
-      return !(slidesParam === '1' || slidesParam === 'true');
-    }
-    return true;
-  });
+  const [posterMode, setPosterMode] = useState(false);
   const autoAdvanceDelay = 6000; // 6 seconds per scene for better viewing
 
   const frames = [
@@ -100,17 +93,6 @@ export default function App() {
     setProgress(0);
     toast.info(isAutoPlaying ? "⏸ Paused" : "▶ Playing");
   };
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const url = new URL(window.location.href);
-    if (posterMode) {
-      url.searchParams.delete('slides');
-    } else {
-      url.searchParams.set('slides', '1');
-    }
-    window.history.replaceState({}, '', url.toString());
-  }, [posterMode]);
 
   if (posterMode) {
     return (

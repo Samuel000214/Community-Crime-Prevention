@@ -1,39 +1,15 @@
-import { useCallback, useRef, useState } from 'react'
-import { Shield, Users, Heart, Download, Activity } from 'lucide-react'
+import { Shield, Users, Heart } from 'lucide-react'
 import { PosterHeader } from './PosterHeader'
 import { ReflectionSection } from './ReflectionSection'
 import { GroupCredits } from './GroupCredits'
 import { ResearchReferences } from './ResearchReferences'
 import { GradingReference } from './GradingReference'
 import { ImageWithFallback } from './figma/ImageWithFallback'
-import { Button } from './ui/button'
-import { toPng } from 'html-to-image'
 
 export function PosterView() {
-  const posterRef = useRef<HTMLDivElement>(null)
-  const [reduceMotion, setReduceMotion] = useState(false)
-
-  const handleExport = useCallback(async () => {
-    if (!posterRef.current) return
-    const dataUrl = await toPng(posterRef.current, { cacheBust: true, pixelRatio: 2, backgroundColor: '#ffffff' })
-    const link = document.createElement('a')
-    link.download = 'community-crime-prevention-poster.png'
-    link.href = dataUrl
-    link.click()
-  }, [])
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white" data-reduce-motion={reduceMotion ? 'true' : 'false'}>
-      <div className="fixed top-3 right-3 z-50 poster-controls flex gap-2">
-        <Button size="sm" variant="outline" onClick={handleExport} title="Export PNG">
-          <Download className="w-4 h-4" />
-        </Button>
-        <Button size="sm" variant={reduceMotion ? 'secondary' : 'outline'} onClick={() => setReduceMotion(v => !v)} title="Toggle Reduce Motion">
-          <Activity className="w-4 h-4" />
-        </Button>
-      </div>
-
-      <div ref={posterRef} className="max-w-6xl mx-auto p-4 sm:p-6 poster-root">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <div className="max-w-6xl mx-auto p-4 sm:p-6">
         <PosterHeader />
 
         <div className="grid md:grid-cols-3 gap-6 mt-6">
