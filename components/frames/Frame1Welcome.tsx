@@ -60,7 +60,7 @@ export function Frame1Welcome({ onNext, autoPlay = false }: Frame1WelcomeProps) 
       ))}
 
       {/* Barangay Houses Silhouettes - at very bottom */}
-      <div className="hidden">
+      <div className="absolute bottom-0 left-0 right-0 flex items-end justify-around px-6 sm:px-12 pb-2 sm:pb-6 pointer-events-none opacity-80 sm:opacity-100">
         {[0, 1, 2, 3, 4, 5].map((i) => (
           <motion.div
             key={i}
@@ -192,7 +192,7 @@ export function Frame1Welcome({ onNext, autoPlay = false }: Frame1WelcomeProps) 
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-40 sm:bottom-48 md:bottom-56 left-3 right-3 sm:left-6 sm:right-6 bg-white rounded-xl sm:rounded-2xl p-3 sm:p-6 shadow-md border border-gray-200 max-w-4xl mx-auto z-30"
+        className="absolute bottom-36 sm:bottom-44 md:bottom-48 left-3 right-3 sm:left-6 sm:right-6 bg-white rounded-xl sm:rounded-2xl p-3 sm:p-6 shadow-2xl border border-gray-200 max-w-4xl mx-auto z-20"
       >
         <div className="flex items-center gap-2 mb-3 sm:mb-4">
           <Users className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
