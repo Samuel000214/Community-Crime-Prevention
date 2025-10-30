@@ -192,7 +192,7 @@ export function Frame1Welcome({ onNext, autoPlay = false }: Frame1WelcomeProps) 
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-36 sm:bottom-44 md:bottom-48 left-3 right-3 sm:left-6 sm:right-6 bg-white rounded-xl sm:rounded-2xl p-3 sm:p-6 shadow-2xl border border-gray-200 max-w-4xl mx-auto z-20"
+        className="absolute bottom-12 sm:bottom-16 md:bottom-20 left-3 right-3 sm:left-6 sm:right-6 bg-white rounded-xl sm:rounded-2xl p-3 sm:p-6 shadow-2xl border border-gray-200 max-w-4xl mx-auto z-20"
       >
         <div className="flex items-center gap-2 mb-3 sm:mb-4">
           <Users className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
